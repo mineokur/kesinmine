@@ -1,0 +1,11 @@
+/* src/components/Header/Header.module.css */
+/* Header bileşeni için özel stiller buraya eklenebilir. */
+/* Örneğin: */
+.header {
+    /* background-color: var(--background-color); */
+    /* min-height: 80px; */
+    /* display: flex; */
+    /* align-items: center; */
+    /* justify-content: center; */
+    /* Zaten Navigation fixed olduğu için bu stillere şimdilik gerek yok */
+}/* Hover'da ikon hafifçe büyüsün */

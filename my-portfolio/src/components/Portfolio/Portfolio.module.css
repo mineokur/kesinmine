@@ -1,0 +1,156 @@
+/* src/components/Portfolio/Portfolio.module.css */
+
+.portfolio {
+    background-color: var(--card-background-dark);
+    padding: 100px 0;
+    color: var(--text-light); /* Bu değişkeni tanımladığınızdan emin olun */
+    border-bottom: 1px solid var(--border-color);
+}
+
+.heading {
+    text-align: center;
+    font-size: 3rem;
+    margin-bottom: 20px;
+    position: relative;
+    padding-bottom: 15px;
+    color: var(--victorian-altin);
+}
+
+.heading::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 4px;
+    background-color: var(--victorian-bordo);
+    border-radius: 2px;
+}
+
+.subHeading {
+    text-align: center;
+    font-size: 1.4rem;
+    color: var(--victorian-bej);
+    margin-bottom: 60px;
+    font-style: italic;
+}
+
+.projectsGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 40px;
+    justify-content: center;
+}
+
+.projectCard {
+    background-color: var(--background-color);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+    transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
+    border: 1px solid var(--border-color);
+    position: relative; /* Hover'daki z-index için */
+
+    /* BURADA DEĞİŞİKLİK YAPIYORUZ */
+    display: flex; /* Kartı bir flex konteyner yap */
+    flex-direction: column; /* İçeriğini dikey olarak sırala */
+    height: 100%; /* Tüm kartların aynı yüksekliğe sahip olmasını sağlar */
+    justify-content: flex-start; /* İçeriğin üstten başlamasını sağlar */
+}
+
+.projectCard:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 10px 30px var(--text-primary); /* Pembe tonunda gölge */
+    border-color: var(--victorian-yesil);
+}
+
+.projectImage {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    display: block;
+    filter: grayscale(20%);
+    transition: filter 0.4s ease;
+    /* projectImage'in esnek olmasını istemediğimiz için flex-shrink: 0 ekliyoruz */
+    flex-shrink: 0;
+}
+
+.projectCard:hover .projectImage {
+    filter: grayscale(0%);
+}
+
+.projectInfo {
+    padding: 25px;
+    /* BURADA DEĞİŞİKLİK YAPIYORUZ */
+    display: flex; /* projectInfo içindeki elemanları da flex yap */
+    flex-direction: column; /* Dikey sırala */
+    flex-grow: 1; /* Kalan tüm dikey alanı doldurmasını sağla */
+    justify-content: flex-start; /* İçeriğin üstten başlamasını sağla */
+}
+
+.projectTitle {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    margin-bottom: 12px;
+    color: var(--victorian-altin);
+    /* Başlığın büyümesini engelle */
+    flex-shrink: 0;
+}
+
+.projectDescription {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.05rem;
+    margin-bottom: 20px; /* Buton ile arasına boşluk bırakıyoruz */
+    color: var(--victorian-bej);
+    line-height: 1.7;
+    /* BURADA DEĞİŞİKLİK YAPIYORUZ: Açıklamanın esnek bir şekilde büyümesini sağlar */
+    flex-grow: 1; /* Bu, açıklamaların buton gelmeden önceki tüm dikey alanı doldurmasını sağlar */
+}
+
+.projectLink {
+    display: inline-block; /* Metin hizalaması için blok değil, inline-block kalabilir */
+    background-color: var(--victorian-bordo);
+    color: var(--victorian-bej);
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border: 1px solid var(--victorian-bordo);
+    text-align: center; /* İçindeki metni ortalar */
+
+    /* BURADA DEĞİŞİKLİK YAPIYORUZ: Butonu en alta it */
+    margin-top: auto; /* Kalan boşluğu otomatik olarak doldurarak kendini en alta iteler */
+    align-self: flex-start; /* Butonu projectInfo içinde sola hizalar */
+    /* align-self: center; */ /* Eğer butonu yatayda ortalamak isterseniz bu yorumu kaldırın */
+    /* width: 100%; */ /* Eğer butonu %100 genişliğinde yapmak isterseniz */
+}
+
+.projectLink:hover {
+    background-color: var(--victorian-altin);
+    color: var(--background-color);
+    text-decoration: none;
+    transform: scale(1.05);
+    border-color: var(--victorian-altin);
+}
+
+@media (max-width: 992px) {
+    .projectsGrid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
+    /* ... (Diğer medya sorguları burada kalacak) ... */
+}
+
+@media (max-width: 768px) {
+    .projectsGrid {
+        grid-template-columns: 1fr; /* Tek sütun */
+    }
+    .projectImage {
+        height: 220px;
+    }
+    /* ... (Diğer medya sorguları burada kalacak) ... */
+
+}

@@ -1,0 +1,226 @@
+/* src/components/Contact/Contact.module.css */
+.contact {
+    background-color: var(--background-color);
+    padding: 100px 0;
+    color: var(--text-light);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.heading {
+    text-align: center;
+    font-size: 3rem;
+    margin-bottom: 20px;
+    position: relative;
+    padding-bottom: 15px;
+    color: var(--victorian-altin);
+}
+
+.heading::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 4px;
+    background-color: var(--victorian-yesil);
+    border-radius: 2px;
+}
+
+.subHeading {
+    text-align: center;
+    font-size: 1.4rem;
+    color: var(--victorian-bej);
+    margin-bottom: 60px;
+    font-style: italic;
+}
+
+.contactContent {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px; /* Kutular arası boşluk */
+    justify-content: center;
+    align-items: stretch; /* Burası ÖNEMLİ: Kutuların yüksekliklerinin eşit olmasını sağlar */
+}
+
+.contactForm {
+    flex: 1; /* Mevcut alanı eşit olarak doldurmasını sağlar */
+    min-width: 300px; /* Minimum genişlik */
+    max-width: 600px; /* Maksimum genişlik (isteğe bağlı, kaldırılabilir) */
+    background-color: var(--card-background-dark);
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+    border: 1px solid var(--victorian-bordo);
+    /* height: auto;  Varsayılan olarak zaten auto'dur, eklemeye gerek yok */
+}
+
+
+.formGroup {
+    margin-bottom: 25px;
+}
+
+.formGroup label {
+    display: block;
+    font-size: 1.1rem;
+    color: var(--victorian-bej);
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.formGroup input[type="text"],
+.formGroup input[type="email"],
+.formGroup textarea {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.08);
+    color: var(--victorian-bordo);
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+.formGroup input::placeholder,
+.formGroup textarea::placeholder {
+    color: var(--victorian-altin);
+}
+/* Hover'da ikon hafifçe büyüsün */
+.formGroup input:focus,
+.formGroup textarea:focus {
+    outline: none;
+    border-color: var(--victorian-altin);
+    background-color: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 0 0 3px var(--victorian-bordo);
+}
+
+.formGroup textarea {
+    resize: vertical;
+}
+
+.submitButton {
+    background-color: var(--victorian-bordo);
+    color: var(--text-light);
+    padding: 15px 30px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 100%;
+    display: flex; /* Metin ve ikon için flex kullanılıyorsa kalsın */
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.submitButton:hover {
+    background-color: var(--victorian-yesil);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+}
+
+/* Eğer Gönder butonunda ikon kullanmayacaksanız bu kısmı kaldırabilirsiniz: */
+/*
+.submitButton i {
+  font-size: 1.2rem;
+  color: var(--text-light);
+}
+*/
+
+/* Sosyal Medya Kısmı */
+.socialMedia {
+    flex: 1; /* Mevcut alanı eşit olarak doldurmasını sağlar (contactForm ile aynı) */
+    min-width: 280px; /* Minimum genişlik */
+    max-width: 400px; /* Maksimum genişlik (isteğe bağlı, kaldırılabilir) */
+    background-color: var(--card-background-dark);
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+    border: 1px solid var(--border-color);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* İçerikleri dikeyde ortalar */
+    align-items: center;
+}
+
+.socialMedia h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: var(--victorian-altin);
+}
+
+.socialMedia p {
+    font-size: 1.05rem;
+    color: var(--victorian-bej);
+    margin-bottom: 30px;
+}
+
+/* İkonlar yerine metin linkleri için stil */
+.socialLinksList { /* Yeni sınıf adımız */
+    display: flex;
+    flex-direction: column; /* Linkleri alt alta sırala */
+    gap: 15px; /* Linkler arası boşluk */
+    width: 100%; /* Kapsayıcısının tamamını kaplasın */
+}
+
+.socialLinksList a {
+    display: block; /* Her linkin kendi satırını kaplamasını sağlar */
+    color: var(--text-light); /* Metin rengi */
+    font-size: 1.3rem; /* Metin boyutu */
+    font-weight: 600;
+    text-decoration: none; /* Alt çizgiyi kaldır */
+    padding: 10px 15px;
+    border: 1px solid var(--victorian-altin); /* Çerçeve ekle */
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    background-color: var(--victorian-bordo); /* Hafif arka plan */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
+}
+
+.socialLinksList a:hover {
+    background-color: var(--victorian-yesil); /* Fare üzerine gelince arka plan rengi */
+    color: var(--text-light); /* Fare üzerine gelince metin rengi */
+    border-color: var(--victorian-yesil);
+    transform: translateY(-3px); /* Hafif yukarı kalkma efekti */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+
+
+/* Medya Sorguları (Responsive Tasarım) */
+@media (max-width: 992px) {
+    .contactContent {
+        flex-direction: column;
+        align-items: center;
+    }
+    .contactForm, .socialMedia {
+        width: 90%; /* Daha büyük ekranlarda tam genişlik, küçük ekranlarda ayar */
+        max-width: 500px; /* Maksimum genişlik, responsive için önemli */
+    }
+}
+
+@media (max-width: 576px) {
+    .heading {
+        font-size: 2.5rem;
+    }
+    .subHeading {
+        font-size: 1.2rem;
+    }
+    .contactForm, .socialMedia {
+        padding: 30px 20px;
+    }
+    .submitButton {
+        font-size: 1.1rem;
+        padding: 12px 25px;
+    }
+    .socialLinksList a { /* Küçük ekranlarda metin link boyutunu ayarlayalım */
+        font-size: 1.1rem;
+        padding: 8px 12px;
+    }
+}

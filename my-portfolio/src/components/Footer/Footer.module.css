@@ -1,0 +1,40 @@
+/* src/components/Footer/Footer.module.css */
+.footer {
+    background-color: var(--background-color);
+    color: var(--victorian-bej);
+    text-align: center;
+    padding: 40px 0;
+    border-top: 1px solid var(--border-color);
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.footer p {
+    margin-bottom: 5px;
+}
+
+.footer p:last-child {
+    margin-bottom: 0;
+    color: var(--victorian-altin);
+    font-style: italic;
+}
+
+.socialIcons {
+    margin-top: 20px; /* Üstteki metinden biraz boşluk bırak */
+    display: flex; /* İkonları yan yana hizalar */
+    gap: 25px;     /* İkonlar arası boşluk */
+    justify-content: center; /* İkonları ortala */
+    align-items: center;
+}
+
+.socialIcons a {
+    color: var(--text-primary); /* <-- Bu satırı kontrol edin */
+    font-size: 1.8rem;
+    transition: color 0.3s ease, transform 0.3s ease;
+    text-decoration: none;
+}
+/* Hover'da ikon hafifçe büyüsün */
+.socialIcons a:hover {
+    color: var(--victorian-altin);
+    transform: translateY(-3px);
+}

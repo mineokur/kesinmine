@@ -1,0 +1,118 @@
+/* src/components/Navigation/Navigation.module.css */
+.navbar {
+    background-color: rgba(46, 46, 46, 0.95); /* Koyu gri/kahve tonu, hafif şeffaf */
+    padding: 1.2rem 2.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
+    border-bottom: 1px solid var(--border-color);
+}
+
+
+.logo a {
+    font-family: 'Playfair Display', serif;
+    color: var(--victorian-altin);
+    font-size: 2rem;
+    font-weight: 700;
+    text-decoration: none;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.navLinks {
+    display: flex;
+    gap: 2.5rem;
+}
+
+.navLinks li a {
+    color: var(--victorian-bej);
+    font-size: 1.15rem;
+    font-weight: 400;
+    transition: all 0.3s ease;
+    padding: 0.5rem 0;
+    position: relative;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.navLinks li a::after {
+    content: '';
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background-color: var(--victorian-altin);
+    transition: width 0.3s ease-in-out;
+}
+
+.navLinks li a:hover {
+    color: var(--victorian-altin);
+    text-decoration: none;
+}
+
+.navLinks li a:hover::after,
+.navLinks li a.active::after { /* Aktif link için de stil ekleyebilirsiniz */
+    width: 100%;
+}
+
+
+.hamburger {
+    display: none; /* Masaüstünde gizli */
+    background: none;
+    border: none;
+    color: var(--victorian-altin);
+    font-size: 2.5rem;
+    cursor: pointer;
+    z-index: 1001; /* Menünün üstünde olması için */
+}
+
+@media (max-width: 992px) {
+    .hamburger {
+        display: block; /* Mobilde göster */
+    }
+
+    .navLinks {
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: rgba(46, 46, 46, 0.98); /* Daha az şeffaf */
+        border-top: 1px solid var(--border-color);
+        height: 0;
+        overflow: hidden;
+        transition: height 0.4s ease-in-out;
+        z-index: 999;
+        padding: 0; /* Başlangıçta padding olmasın */
+    }
+
+    .navLinks.open {
+        height: auto;
+        max-height: 400px; /* Menü öğelerine göre ayarlanabilir */
+        padding: 1.5rem 0;
+    }
+
+    .navLinks li {
+        text-align: center;
+        margin: 0.8rem 0;
+    }
+
+    .navLinks li a {
+        font-size: 1.3rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .navbar {
+        padding: 1rem 1.5rem;
+    }
+    .logo a {
+        font-size: 1.5rem;
+    }
+}
