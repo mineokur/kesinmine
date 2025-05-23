@@ -1,0 +1,110 @@
+/* src/index.css */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Open+Sans:wght@300;400;600&display=swap');
+
+:root {
+  /* Genel Arka Plan ve Koyu Alanlar */
+  --background-color: #F8D8DE;     /* Açık şeftali pembe - Ana sayfa arka planı */
+  --card-background-dark: #FCC7D1; /* Biraz daha koyu pembe - Kartlar, form alanları */
+
+  /* Metin Renkleri */
+  --text-primary: #B8445E;        /* Koyu somon pembe - Ana metin rengi (okunabilirliği artırmak için) */
+  --text-secondary: #DE8C9C;      /* Soluk yeşil/bej - İkincil metinler, açıklamalar */
+  --text-heading: #B8445E;        /* Koyu somon pembe - Başlıklar, önemli vurgular */
+  --text-dark-contrast: #3A2A30;  /* Metin için koyu kahverengi (eğer daha koyu bir şeye ihtiyaç olursa) */
+  --text-light: #F8D8DE;
+  /* Vurgu Renkleri */
+  --victorian-altin: #E47990;   /* Orta pembe tonu - Vurgu, aktif durumlar */
+  --victorian-bej: #E47990;     /* Açık bej/şeftali - İkincil vurgular, yumuşak geçişler */
+  --victorian-bordo: #B8445E;   /* Koyu somon pembe - Örneğin butonların normal hali için */
+  --victorian-yesil: #DE8C9C;   /* Paletinizdeki yeşil/bej tonu - İkincil butonların veya hover'ların doğal vurgusu */
+
+  /* Diğer Eleman Renkleri */
+  --border-color: rgba(255, 118, 186, 0.6); /* Somon pembeden şeffaf bir sınır */
+  --shadow-color: rgba(0, 0, 0, 0.15);    /* Gölge, daha hafif olsun */
+
+
+  /* Font Aileleri */
+  --font-heading: 'Playfair Display', serif;
+  --font-body: 'Inter', sans-serif;
+}
+
+html {
+  scroll-behavior: smooth; /* <-- BURAYI EKLEYİN */
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--background-color);
+  color: var(--text-light);
+  line-height: 1.8;
+  scroll-behavior: smooth; /* BURASI KESİNLİKLE OLMALI */
+}
+
+/* Genel sıfırlamalar */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Playfair Display', serif;
+  margin-top: 0;
+  margin-bottom: 0.8rem;
+  font-weight: 700;
+  color: var(--victorian-altin); /* Başlıklar altın rengi */
+}
+
+p {
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+a {
+  color: var(--victorian-altin);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: var(--victorian-bej);
+  text-decoration: underline;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+section {
+  padding: 100px 0; /* Bölümler arası boşluk */
+  position: relative;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 25px;
+}
+
+/* Scrollbar stilini Victorian temaya uygun hale getirelim */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background-color);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--victorian-bordo);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--victorian-altin);
+}
